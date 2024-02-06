@@ -7,7 +7,7 @@ def save_contacts(data):
                     s.append(v)
                 fh.write(','.join(s) + '\n')
 
-save_contacts([{'name':'me'},{'name':'you'}])
+
 
 
 

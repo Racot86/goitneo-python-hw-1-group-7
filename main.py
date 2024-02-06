@@ -3,6 +3,9 @@ from load_contacts import load_contacts
 from format_command import format_command
 from save_contacts import save_contacts
 from add_command import add_command
+from hello_command import hello_command
+from show_contacts import show_contacts
+from invalid_command import invalid_command
 
 # colors to be used in design
 c_perssy = colors.CBEIGE # assistant color
@@ -19,16 +22,21 @@ def process_command(cmd):
     
     match cmd[0]:
         case 'hello':
-            print('Perssy: : Hi!\n')
+            hello_command()
         case 'add':
             add_command(cmd, load_contacts())
+        case 'show':
+            show_contacts(cmd)
+        case _:
+            invalid_command(cmd)
+
 
 
 while True:
 
     cmd =  format_command( input(c_cmd + 'You: ' + c_end)) # getting command from user
 
-    # print(c_debug + 'debugger: ' + '[' + ', '.join(cmd) + ']') # debugger for cmd
+    print(c_debug + 'cmd parser : ' + '[' + ', '.join(cmd) + ']' + c_end) # parser for cmd
 
     if cmd[0] == 'exit':
         break

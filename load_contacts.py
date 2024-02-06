@@ -37,4 +37,3 @@ def load_contacts():
     
     return []
 
-print (load_contacts())
