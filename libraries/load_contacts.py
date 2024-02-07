@@ -1,4 +1,5 @@
 from pathlib import Path
+from datetime import datetime
 
 def load_contacts():
     if Path.is_file(Path('contacts.txt')):
@@ -6,7 +7,10 @@ def load_contacts():
             t = fh.read()
             if len(t) > 0:
                 array = t.split('\n')
-                array.remove('')
+                try:
+                    array.remove('')
+                except:
+                    a = ''
                 dict_data = []
                 for c in array:
                     data = {'name': '',
@@ -20,10 +24,16 @@ def load_contacts():
                             data['name'] = s[0]
                         case 2:
                             data['name'] = s[0]
-                            data['birthday'] = s[1]
+                            if s[1] != '':
+                                data['birthday'] = datetime.strptime(s[1], '%Y-%m-%d %H:%M:%S')
+                            else:
+                                data['birthday'] = ''
                         case 3:
                             data['name'] = s[0]
-                            data['birthday'] = s[1]
+                            if s[1] != '':
+                                data['birthday'] = datetime.strptime(s[1], '%Y-%m-%d %H:%M:%S')
+                            else:
+                                data['birthday'] = ''
                             data['tel'] = s[2]
                     dict_data.append(data)
                 return dict_data    
