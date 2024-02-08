@@ -38,9 +38,12 @@ def show_contacts(cmd):
             if c['name'] == cmd[0]:
                 match = True
                 print('\n' + spaces + perssy + ' Contact details:')
-                print(spaces + '            ' + f' Name: {c['name']}')
-                print(spaces + '            ' + f' Birthday: {c['birthday']}')
-                print(spaces + '            ' + f' Tel. no: {c['tel']}\n')
-        if match == False: print (spaces + 'Perssy: I did not recognized which data to show.')
+                print( '               ' + "{:>20}: {:<15}".format(c_highlight + 'Name' + c_end, c['name']))
+                if c['birthday'] != '':
+                    print( '               ' + "{:>20}: {:<15}".format(c_highlight + 'Birthday' + c_end , c['birthday'].strftime("%d-%m-%Y")))
+                else:
+                    print( '               ' + "{:>20}: {:<15}".format(c_highlight + 'Birthday' + c_end , ''))
+                print( '               ' + "{:>20}: {:<15}".format(c_highlight + 'Tel. no' + c_end, c['tel']) + '\n')
+        if match == False: print ('\n' + spaces + perssy + c_wrong + 'I did not recognized which data to show.' + c_end + '\n')
 
 

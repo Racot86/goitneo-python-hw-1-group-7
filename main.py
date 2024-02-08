@@ -9,6 +9,7 @@ from libraries.invalid_command import invalid_command
 from libraries.tel_command import tel_command
 from libraries.delete_command import delete_command
 from libraries.change_command import change_command
+from libraries.birthday_command import birthday_command
 
 def main():
     # colors to be used in design
@@ -44,6 +45,8 @@ def main():
                 show_contacts(cmd)
             case 'tel':
                 tel_command(cmd, load_contacts())
+            case 'birthday':
+                birthday_command(cmd, load_contacts())
             case 'delete':
                 delete_command(cmd)
             case 'change':
