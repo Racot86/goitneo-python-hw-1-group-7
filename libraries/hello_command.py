@@ -15,7 +15,7 @@ spaces = '     '
 def hello_command():
     time_of_day = ''
     time = datetime.now()
-    if time.hour >= 4 and time.hour < 12: time_of_day = 'morning'
+    if time.hour >= 0 and time.hour < 12: time_of_day = 'morning'
     if time.hour >= 12 and time.hour < 18: time_of_day = 'day'
     if time.hour >= 18 and time.hour <= 23: time_of_day = 'evening'
     print( '\n' + spaces + perssy + f'Good {time_of_day}! How can I help you?\n')

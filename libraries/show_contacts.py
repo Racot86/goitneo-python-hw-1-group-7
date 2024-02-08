@@ -33,6 +33,14 @@ def show_contacts(cmd):
             print ( spaces + perssy + '\n')
             print ( spaces + spaces + 'Contact list is empty' + '\n')
     else:
-        print (spaces + 'Perssy: I did not recognized which data to show.')
+        match = False
+        for c in load_contacts():
+            if c['name'] == cmd[0]:
+                match = True
+                print('\n' + spaces + perssy + ' Contact details:')
+                print(spaces + '            ' + f' Name: {c['name']}')
+                print(spaces + '            ' + f' Birthday: {c['birthday']}')
+                print(spaces + '            ' + f' Tel. no: {c['tel']}\n')
+        if match == False: print (spaces + 'Perssy: I did not recognized which data to show.')
 
 

@@ -8,6 +8,7 @@ from libraries.show_contacts import show_contacts
 from libraries.invalid_command import invalid_command
 from libraries.tel_command import tel_command
 from libraries.delete_command import delete_command
+from libraries.change_command import change_command
 
 def main():
     # colors to be used in design
@@ -45,6 +46,8 @@ def main():
                 tel_command(cmd, load_contacts())
             case 'delete':
                 delete_command(cmd)
+            case 'change':
+                change_command(cmd, load_contacts())
             case _:
                 invalid_command(cmd)
 
@@ -57,7 +60,8 @@ def main():
         #print(c_debug + 'cmd parser : ' + '[' + ', '.join(cmd) + ']' + c_end) # parser for cmd
 
         if cmd[0] in exit_synonims:
-            print('\n' + spaces + perssy + 'Good bye! See next time!\n')
+            print('\n' + spaces + perssy + 'Good bye! See you next time!\n')
+            print('                       ' + c_perssy + '/ᐠ - ˕ -マ' + c_end + 'ᶻ 𝗓 𐰁' + '\n')
             break
         else:
             process_command(cmd)
