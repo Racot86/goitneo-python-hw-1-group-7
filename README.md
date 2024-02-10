@@ -1,9 +1,9 @@
-goitneo-python-hw-1-group-7
+# goitneo-python-hw-1-group-7
 
-Task 1
-To show contacts who have birthdays next week.
-This task implemented in bot.
-To run this command type - upcoming week birthdays
+## Task 1
+### To show contacts who have birthdays next week.
+### This task implemented in bot.
+### To run this command type - upcoming week birthdays
 
 Task 2
 Create bot, which can execute commands.
