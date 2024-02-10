@@ -1,3 +1,10 @@
+"""
+GOITNEO-PYTHON-HW-1-GROUP-7
+
+to test task 1(getting birthdays for next week) from HW enter command: upcoming week birthdays
+
+"""
+
 from libraries.colors import colors
 from libraries.load_contacts import load_contacts
 from libraries.format_command import format_command
@@ -10,6 +17,8 @@ from libraries.tel_command import tel_command
 from libraries.delete_command import delete_command
 from libraries.change_command import change_command
 from libraries.birthday_command import birthday_command
+from libraries.upcoming_birthday_command import upcoming_birthday
+from libraries.help_command import help_command
 
 def main():
     # colors to be used in design
@@ -28,7 +37,8 @@ def main():
     print('\n' + '             ' + colors.CBEIGEBG +  ' Personal Assistant App ' + c_end + ' ver 1.0')
     print('                ' + 'created by MAYEVSKY Dmytro')
     print('\n                        ' + c_perssy + '≽^•⩊•^≼' + c_end + '\n')
-    print(spaces + perssy + "Hi! I am " + c_perssy + 'Perssy' + c_end + '! Your personal assistant.\n')
+    print(spaces + perssy + "Hi! I am " + c_perssy + 'Perssy' + c_end + '! Your personal assistant.')
+    print(spaces + '        ' + "To check my abilities, enter " + c_highlight + 'help' + c_end + ' command.\n')
 
     def process_command(cmd):
         
@@ -51,6 +61,10 @@ def main():
                 delete_command(cmd)
             case 'change':
                 change_command(cmd, load_contacts())
+            case 'upcoming':
+                upcoming_birthday(cmd)
+            case 'help':
+                help_command(cmd)
             case _:
                 invalid_command(cmd)
 
